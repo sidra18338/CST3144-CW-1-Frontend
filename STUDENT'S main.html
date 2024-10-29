@@ -97,8 +97,8 @@
       <p>State: {{order.state}}</p>
       <p>You have {{ cartItemCount }} items in your cart.</p>
       <button v-on:click="showCheckout">Go back to product</button>
-
-      <div v-for="cartitem in cart">
+<h3>My</h3>
+      <div v-for="cartitem in cart" class="myproduct">
 
         <p>{{lessons[cartitem-1].subject}}</p>
         <button v-on:click="removeFromCart(lessons[cartitem-1])">Delete</button>
