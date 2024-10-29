@@ -188,6 +188,7 @@
             <p v-text="lesson.Location"></p>
             <p>Price: {{ lesson.price }}</p>
             <p>Available spaces: {{ lesson.availableInventory }}</p>
+            
             <button v-on:click="addToCart(lesson)" v-if="lesson.availableInventory > 0">Add to cart</button>
             <button disabled v-else>Add to cart</button>
           </div>
@@ -210,6 +211,7 @@
           <option>Abu Dhabi</option>
         </select>
       </p>
+    
       <p><strong>Zip/Postal:</strong><input v-model="order.zip"></p>
       <p><input type="checkbox" id="gift" value="true" v-model="order.gift">
         <label for="gift">Ship As Gift?</label></p>
@@ -223,6 +225,13 @@
       <p>State: {{order.state}}</p>
       <p>You have {{ cartItemCount }} items in your cart.</p>
       <button v-on:click="showCheckout">Go back to product</button>
+
+      <div v-for="cartitem in cart">
+
+        <p>{{lessons[cartitem-1].subject}}</p>
+        <button v-on:click="removeFromCart(lessons[cartitem-1])">Delete</button>
+
+      </div>
     </div>
   </div>
 
@@ -230,6 +239,7 @@
     new Vue({
       el: '#app',
       data: {
+        
         sitename: "After School Club",
         searchQuery: "",
         sortBy: "subject",
@@ -340,6 +350,8 @@
           if (index !== -1) {
             this.cart.splice(index, 1);
             lesson.availableInventory++;
+            console.log("i came here");
+            
           }
         },
         showCheckout() {
