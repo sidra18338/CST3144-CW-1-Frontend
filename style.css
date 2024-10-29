@@ -1,0 +1,130 @@
+
+    body {
+    background-image: "Assests/background.jpeg";
+    font-family: Arial, sans-serif;
+    background-color: #f7f8fc;
+    margin: 0;  
+    padding: 0;
+    color: #333;
+  }
+  
+      #app { 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        color: #333;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+  
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #4a90e2;
+        padding: 10px;
+        color: white;
+        border-radius: 5px;
+      }
+  
+      header h1 {
+        font-size: 1.5em;
+        margin: 0;
+      }
+  
+      header button {
+        background-color: #ff5a5f;
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      header button:hover {
+        background-color: #ff8080;
+      }
+  
+      .search-bar input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+        box-sizing: border-box;
+      }
+  
+      .sorting-options {
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px;
+        background-color: #eef3f9;
+        border-radius: 5px;
+      }
+  
+      .lesson-info {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      .lesson-image img {
+        border-radius: 5px;
+        margin-right: 15px;
+      }
+  
+      .lesson-details h2 {
+        margin: 0;
+        font-size: 1.2em;
+        color: #333;
+      }
+  
+      .lesson-details button {
+        background-color: #4a90e2;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        font-size: 0.9em;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+  
+      .lesson-details button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+  
+      h2 {
+        font-size: 1.5em;
+        color: #4a90e2;
+      }
+  
+      .checkout-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f1f3f5;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+  
+      .checkout-item button:hover {
+        background-color: #ff8080;
+      }
+  
+      button {
+        cursor: pointer;
+      }
+    
