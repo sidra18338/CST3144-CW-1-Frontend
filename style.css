@@ -67,6 +67,10 @@
         background-color: #eef3f9;
         border-radius: 5px;
       }
+
+      .sorting-options label{
+        margin-top: 2%;
+      }
   
       .lesson-info {
         display: flex;
