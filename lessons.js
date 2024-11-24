@@ -47,6 +47,7 @@ let lessons=[
       image: "Assests/chemistry.jpeg",
       availableInventory: 7
     },
+    
     {
       id: 7,
       subject: "physics",
@@ -55,6 +56,7 @@ let lessons=[
       image: "Assests/physics.jpeg",
       availableInventory: 8
     },
+    
     {
       id: 8,
       subject: "Accountancy",
