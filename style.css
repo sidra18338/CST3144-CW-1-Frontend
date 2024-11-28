@@ -57,7 +57,7 @@
         font-size: 1em;
         box-sizing: border-box;
       }
-  
+
       .sorting-options {
         margin: 20px 0;
         display: flex;
@@ -132,5 +132,4 @@
         cursor: pointer;
       }
     .myproduct{
-        
     }

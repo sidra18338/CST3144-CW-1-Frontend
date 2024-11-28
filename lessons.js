@@ -52,6 +52,7 @@ let lessons=[
       availableInventory: 7
 
     },
+    
     {
       id: 7,
       subject: "physics",
@@ -61,6 +62,7 @@ let lessons=[
       availableInventory: 8
       
     },
+    
     {
       id: 8,
       subject: "Accountancy",
