@@ -11,6 +11,7 @@
 </head>
 <body>
   <div id="app">
+    <!-- Header section with site name and checkout button -->
     <header>
       <h1 v-text="sitename"></h1>
       <button v-on:click="showCheckout">
@@ -19,8 +20,10 @@
       </button>
     </header>
 
+    <!-- Product listing section -->
     <div v-if="showProduct">
       <main class="lesson-container">
+        <!-- Search bar for filtering lessons -->
         <div class="search-bar">
           <input 
             type="text" 
@@ -30,6 +33,7 @@
           />
         </div>
 
+        <!-- Sorting options section -->
         <div class="sorting-options">
           <p>Sort by:</p>
           <label>
@@ -51,16 +55,20 @@
           </label>
         </div>
 
+        <!-- Looping through filtered lessons and displaying each lesson -->
         <div v-for="lesson in filteredLessons" :key="lesson.id" class="lesson-info">
+          <!-- Image section for each lesson -->
           <figure class="lesson-image">
             <img :src="lesson.image" :alt="lesson.subject + ' Lesson Image'" style="width: 150px; height: auto; object-fit: cover;" />
           </figure>
+          <!-- Details section for each lesson -->
           <div class="lesson-details">
             <h2 v-text="lesson.subject"></h2>
             <p v-text="lesson.Location"></p>
             <p>Price: {{ lesson.price }}</p>
             <p>Available spaces: {{ lesson.availableInventory }}</p>
             
+            <!-- Add to cart button, disabled if no inventory -->
             <button v-on:click="addToCart(lesson)" v-if="lesson.availableInventory > 0">Add to cart</button>
             <button disabled v-else>Add to cart</button>
           </div>
@@ -68,8 +76,10 @@
       </main>
     </div>
     
+    <!-- Checkout section -->
     <div v-else>
       <h2>Checkout</h2>
+      <!-- Order form for user details -->
       <p><strong>First Name:</strong><input v-model="order.firstName"></p>
       <p><strong>Last Name:</strong><input v-model="order.lastName"></p>
       <p><strong>Address:</strong><input v-model="order.address"></p>
@@ -88,6 +98,7 @@
       <p><input type="checkbox" id="gift" value="true" v-model="order.gift">
         <label for="gift">Ship As Gift?</label></p>
 
+      <!-- Displaying order information -->
       <h2>Order Information</h2>
       <p>First Name: {{order.firstName}}</p>
       <p>Last Name: {{order.lastName}}</p>
@@ -97,85 +108,14 @@
       <p>State: {{order.state}}</p>
       <p>You have {{ cartItemCount }} items in your cart.</p>
       <button v-on:click="showCheckout">Go back to product</button>
-<h3>My</h3>
-      <div v-for="cartitem in cart" class="myproduct">
 
+      <!-- Displaying items in the cart -->
+      <h3>My Cart</h3>
+      <div v-for="cartitem in cart" class="myproduct">
         <p>{{lessons[cartitem-1].subject}}</p>
         <button v-on:click="removeFromCart(lessons[cartitem-1])">Delete</button>
-
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
-    new Vue({
-      el: '#app',
-      data: {
-        
-        sitename: "After School Club",
-        searchQuery: "",
-        sortBy: "subject",
-        sortOrder: "asc",
-        lessons: lessons,
-        cart: [],
-        showProduct: true,
-        order: {
-          firstName: "",
-          lastName: "",
-          address: "",
-          city: "",
-          state: "",
-          zip: "",
-          gift: false
-        }
-      },
-      methods: {
-        addToCart(lesson) {
-          if (lesson.availableInventory > 0) {
-            this.cart.push(lesson.id);
-            lesson.availableInventory--;
-          }
-        },
-        removeFromCart(lesson) {
-          const index = this.cart.indexOf(lesson.id);
-          if (index !== -1) {
-            this.cart.splice(index, 1);
-            lesson.availableInventory++;
-            console.log("i came here");
-            
-          }
-        },
-        showCheckout() {
-          this.showProduct = !this.showProduct;
-        },
-        updateSearch() {}
-      },
-      computed: {
-        cartItemCount() {
-          return this.cart.length || "";
-        },
-        cartItems() {
-          return this.lessons.filter(lesson => this.cart.includes(lesson.id));
-        },
-        filteredLessons() {
-          const filtered = this.lessons.filter(lesson =>
-            lesson.subject.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-            lesson.Location.toLowerCase().includes(this.searchQuery.toLowerCase())
-          );
-
-          return filtered.sort((a, b) => {
-            let modifier = this.sortOrder === 'asc' ? 1 : -1;
-            if (this.sortBy === 'subject') {
-              return modifier * a.subject.localeCompare(b.subject);
-            } else if (this.sortBy === 'price') {
-              return modifier * (a.price - b.price);
-            } else if (this.sortBy === 'Location') {
-              return modifier * a.Location.localeCompare(b.Location);
-            }
-          });
-        }
-      }
-    });
-  </script>
 </body>
 </html>
