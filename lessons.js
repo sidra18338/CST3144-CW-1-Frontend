@@ -38,7 +38,7 @@ let lessons=[
     },
     {
       id: 5,
-      subject: "biology",
+      subject: "Biology",
       Location: "Dubai",
       price: 3900,
       image: "backend/Assets/biology.webp",
@@ -47,7 +47,7 @@ let lessons=[
     },
     {
       id: 6,
-      subject: "chemistry",
+      subject: "Chemistry",
       Location: "Sharja",
       price: 5600,
       image: "backend/Assets/chemistry.jpeg",
@@ -57,7 +57,7 @@ let lessons=[
     
     {
       id: 7,
-      subject: "physics",
+      subject: "Physics",
       Location: "Ajman",
       price: 1800,
       image: "backend/Assets/physics.jpeg",
@@ -83,7 +83,7 @@ let lessons=[
     },
     {
       id: 10,
-      subject: "pshycology",
+      subject: "Pshycology",
       Location: "Ajman",
       price: 1600,
       image: "backend/Assets/pshycology.jpeg",

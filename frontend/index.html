@@ -183,7 +183,7 @@
       },
       created: function () {
       console.log("requesting data from server ...");
-      fetch("http://localhost:8080/collection/lessons", {
+      fetch("http://localhost:8080/lessons", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -266,8 +266,8 @@
           if (index !== -1) {
             this.cart.splice(index, 1);
             lesson.availableInventory++;
-            
-            
+          }else{
+
           }
         },
         showShoppingCart() {
@@ -358,31 +358,35 @@
       },
 
       computed: {
-        cartItemCount() {
-          return this.cart.length || "";
-        },
-        cartItems() {
-          return this.lessons.filter(lesson => this.cart.includes(lesson.id));
-        },
-        filteredLessons() {
-          const filtered = this.lessons.filter(lesson =>
-            lesson.subject.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-            lesson.Location.toLowerCase().includes(this.searchQuery.toLowerCase())
-          );
+      cartItemCount() {
+        return this.cart.length || "";
+      },
+      cartItems() {
+        return this.lessons.filter(lesson => this.cart.includes(lesson.id));
+      },
+      filteredLessons() {
+        const filtered = this.lessons.filter(lesson =>
+          (lesson.subject && lesson.subject.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+          (lesson.Location && lesson.Location.toLowerCase().includes(this.searchQuery.toLowerCase()))
+        );
 
-          return filtered.sort((a, b) => {
-            let modifier = this.sortOrder === 'asc' ? 1 : -1;
-            if (this.sortBy === 'subject') {
-              return modifier * a.subject.localeCompare(b.subject);
-            } else if (this.sortBy === 'price') {
-              return modifier * (a.price - b.price);
-            } else if (this.sortBy === 'Location') {
-              return modifier * a.Location.localeCompare(b.Location);
-            }
-          });
-        }
+        const modifier = this.sortOrder === 'asc' ? 1 : -1;
+
+        return filtered.sort((a, b) => {
+          if (this.sortBy === 'subject') {
+            return modifier * ((a.subject || '').localeCompare(b.subject || ''));
+          } else if (this.sortBy === 'price') {
+            return modifier * ((a.price || 0) - (b.price || 0));
+          } else if (this.sortBy === 'Location') {
+            return modifier * ((a.Location || '').localeCompare(b.Location || ''));
+          } else if (this.sortBy === 'availableInventory') {
+            return modifier * ((a.availableInventory || 0) - (b.availableInventory || 0));
+          }
+          return 0;
+        });
       }
-    });
+    }
+  });
   </script>
 </body>
 </html>

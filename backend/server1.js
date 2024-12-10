@@ -16,6 +16,12 @@ app.set('port', PORT); // Set the application port
 
 // Serve static files for images from the 'Assets' directory
 app.use('/images', express.static(path.join(__dirname, 'Assets')));
+app.use(express.static(path.join(__dirname, 'frontend')));
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+});
 
 // Static file middleware to handle requests for image file that does not exist
 app.use('/images', (req, res) => {
@@ -34,7 +40,7 @@ app.use((req, res, next) => {
 let db; // Initialize a variable to hold the database connection
 MongoClient.connect(
     //"mongodb+srv://sidratahir145:wednesday@cluster0.1pssr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    'mongodb+srv://sidratahir145:freez12345@cluster0.nqlga.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+    'mongodb+srv://sidratahir145:wednesday@cluster0.1pssr.mongodb.net/',
     
     { useUnifiedTopology: true }, // Use the new MongoDB driver topology engine
     (err, client) => {
@@ -43,7 +49,7 @@ MongoClient.connect(
             process.exit(1); // Exit the application if the connection fails
         }
         console.log('Connected to MongoDB');
-        db = client.db('lessonDB'); // Set the database to 'webstore'
+        db = client.db('Webstore'); // Set the database to 'webstore'
     }
 );
 
@@ -63,6 +69,16 @@ app.param('collectionName', (req, res, next, collectionName) => {
 // Retrieve all objects from a collection
 app.get('/collection/:collectionName', (req, res, next) => {
     req.collection.find({}).toArray((err, results) => {
+        if (err) return next(err); // Pass the error to the error handler
+        res.send(results); // Send the retrieved documents as the response
+        //return next()
+    });
+});
+
+// Retrieve all objects from a collection
+app.get('/lessons', (req, res, next) => {
+    const lessons = db.collection('lessons');
+    lessons.find({}).toArray((err, results) => {
         if (err) return next(err); // Pass the error to the error handler
         res.send(results); // Send the retrieved documents as the response
         //return next()
