@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "main": "lessons.js",
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "mongodb": "^3.6.3",
     "node": "^20.18.1"
   }
 }

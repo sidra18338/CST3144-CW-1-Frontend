@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>fetch post example</title>
+    </head>
+
+
+
+<body>
+
+    <div id="app">
+    <p>Add a new prodcut to the <code>products</code> collection</p>
+    <code>{title: 'new product', price: 49}</code>
+    <p>The response: <span id='response'>   </span>
+    </p>
+    <p>Error: <span id='error'></span></p>
+    <div v-for ="l in lesson ">
+        <div class="lesson-details">
+        <h2 v-text="l.subject"></h2>
+        <p v-text="l.Location"></p>
+        <p>Price: {{ l.price }}</p>
+        <p>Available spaces: {{ l.availableInventory }}
+          <button v-on:click="Addtocart">
+          add to cart
+          </button>
+    </div>
+    </div>
+</div>
+<script>
+//         const newProduct = { title: 'new product', price: 49 };
+// function dample(){
+//     fetch('https://localhost:8080/collection/lesson', {
+//             method: 'GET', // set the HTTP method as 'POST'
+//             headers: {
+//                 'Content-Type': 'application/json', // set the data type as JSON
+//             },
+           
+//         })
+//             .then(response => response.json())
+//             .then(responseJSON => {
+//                 document.getElementById('response').innerText = JSON.stringify(responseJSON);
+//             })
+//             .catch((error) => {
+//                 document.getElementById('error').innerText = error;
+//             });
+// }
+//         // set the url to your server and route
+      
+//     
+
+let webstore = new Vue({
+    el: "#app",
+    data: {
+      sitename: "Ac",
+      lesson: [],
+   
+    },
+ methods:{
+Addtocart(){
+
+  const newProduct = { title: 'new product', price: 49 };
+
+// set the url to your server and route
+fetch('http://localhost:3000/collection/order', {
+    method: 'POST', // set the HTTP method as 'POST'
+    headers: {
+        'Content-Type': 'application/json', // set the data type as JSON
+    },
+    body: JSON.stringify(order), // need to stringify the JSON object
+})
+    .then(response => response.json())
+    .then(responseJSON => {
+        document.getElementById('response').innerText = JSON.stringify(responseJSON);
+    })
+    .catch((error) => {
+        document.getElementById('error').innerText = error;
+    });
+
+}
+ },
+    created: function () {
+      console.log("requesting data from server ...");
+      fetch("http://localhost:8080/collection/lesson", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((responseJSON) => {
+          console.log("Response received:", responseJSON);
+ 
+          this.lesson = responseJSON;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          document.getElementById("error").innerText = error.message;
+        });
+   
+    },
+  });
+</script>
+</body>
+
+</html>

@@ -1,10 +1,12 @@
+
 let lessons=[ 
+  
     {
       id: 1,
       subject: "Math",
       Location: "Dubai",
       price: 2000,
-      image: "Assets/maths.jpeg",
+      image: "backend/Assets/maths.jpeg",
       availableInventory: 6
 
     },
@@ -13,7 +15,7 @@ let lessons=[
       subject: "English",
       Location: "Sharjah",
       price: 1000,
-      image: "Assets/english.avif",
+      image: "backend/Assets/english.avif",
       availableInventory: 9
 
     },
@@ -22,7 +24,7 @@ let lessons=[
       subject: "Music",
       Location: "Ajman",
       price: 4980,
-      image: "Assets/music.jpg",
+      image: "backend/Assets/music.jpg",
       availableInventory: 4
     },
     {
@@ -30,7 +32,7 @@ let lessons=[
       subject: "Cricket",
       Location: "Abu Dhabi",
       price: 1950,
-      image: "Assets/cricket.png",
+      image: "backend/Assets/cricket.png",
       availableInventory: 10
 
     },
@@ -39,7 +41,7 @@ let lessons=[
       subject: "biology",
       Location: "Dubai",
       price: 3900,
-      image: "Assets/biology.jpeg",
+      image: "backend/Assets/biology.webp",
       availableInventory: 5
 
     },
@@ -48,7 +50,7 @@ let lessons=[
       subject: "chemistry",
       Location: "Sharja",
       price: 5600,
-      image: "Assets/chemistry.jpeg",
+      image: "backend/Assets/chemistry.jpeg",
       availableInventory: 7
 
     },
@@ -58,7 +60,7 @@ let lessons=[
       subject: "physics",
       Location: "Ajman",
       price: 1800,
-      image: "Assets/physics.jpeg",
+      image: "backend/Assets/physics.jpeg",
       availableInventory: 8
       
     },
@@ -68,7 +70,7 @@ let lessons=[
       subject: "Accountancy",
       Location: "Abu dhabi",
       price: 500,
-      image: "Assets/accountancy.jpeg",
+      image: "backend/Assets/accountancy.jpeg",
       availableInventory: 20
     },
     {
@@ -76,7 +78,7 @@ let lessons=[
       subject: "Computer",
       Location: "ras al khaima",
       price: 200,
-      image: "Assets/computer.jpeg",
+      image: "backend/Assets/computer.jpeg",
       availableInventory: 15
     },
     {
@@ -84,7 +86,8 @@ let lessons=[
       subject: "pshycology",
       Location: "Ajman",
       price: 1600,
-      image: "Assets/pshycology.jpeg",
+      image: "backend/Assets/pshycology.jpeg",
       availableInventory: 13
     },
   ]
+    
