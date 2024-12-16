@@ -6,7 +6,7 @@ const path = require('path');
 
 // Create an Express.js instance
 const app = express();
-const PORT = 8080; // Define the port to run the server
+const PORT = 3000; // Define the port to run the server
 app.use(cors());
 
 
@@ -43,7 +43,6 @@ MongoClient.connect(
 
     'mongodb+srv://sidratahir145:wednesday@cluster0.1pssr.mongodb.net/',
 
-    'mongodb+srv://sidratahir145:freez12345@cluster0.nqlga.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
 
     
     { useUnifiedTopology: true }, // Use the new MongoDB driver topology engine
@@ -55,7 +54,7 @@ MongoClient.connect(
         console.log('Connected to MongoDB');
         db = client.db('Webstore'); // Set the database to 'webstore'
 
-        db = client.db('lessonDB'); // Set the database to 'webstore'
+        //db = client.db('lessonDB'); // Set the database to 'webstore'
 
     }
 );

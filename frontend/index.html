@@ -183,7 +183,7 @@
       },
       created: function () {
       console.log("requesting data from server ...");
-      fetch("http://localhost:8080/lessons", {
+      fetch("http://localhost:3000/lessons", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -290,7 +290,7 @@
             zip: this.order.zip,
             cart: this.cart
           };
-          fetch(`http://localhost:8080/collection/orders`, {
+          fetch(`http://localhost:3000/collection/orders`, {
             method:"POST",
             headers: {
               "Content-Type": "application/json",
@@ -314,7 +314,7 @@
                 const updateData = {
                   availableInventory: 0
                 }
-                fetch(`http://localhost:8080/collection/lessons/${lesson}`, {
+                fetch(`http://localhost:3000/collection/lessons/${lesson}`, {
                   method:"PUT",
                   headers: {
                     "Content-Type": "application/json",
@@ -341,7 +341,7 @@
             this.fetchLessons();
             return;
           }
-          fetch(`http://localhost:8080/search?q=${encodeURIComponent(this.searchQuery)}`)
+          fetch(`http://localhost:3000/search?q=${encodeURIComponent(this.searchQuery)}`)
             .then(response => {
               if (!response.ok) {
                 throw new Error("HTTP error! Status: ${response.status}");

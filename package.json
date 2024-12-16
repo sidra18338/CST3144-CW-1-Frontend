@@ -9,12 +9,12 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Github FrontEnd Link--------> https://github.com/sidra18338/CST3144-CW-1-Frontend",
   "dependencies": {
     "@vue/cli-service": "^5.0.8",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
-    "mongodb": "^3.6.3",
+    "express": "^4.21.2",
+    "mongodb": "^3.6.7",
     "node": "^20.18.1"
   }
 }

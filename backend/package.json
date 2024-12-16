@@ -1,0 +1,1 @@
+{"name":"backend","private":true,"scripts":{"start":"node server1.js"},"dependencies":{"express":"^4.21.2","mongodb":"^3.6.7"}}
