@@ -9,7 +9,6 @@ const app = express();
 const PORT = 8080; // Define the port to run the server
 app.use(cors());
 
-
 // Configure Express.js
 app.use(express.json()); // Parse incoming JSON request bodies
 app.set('port', PORT); // Set the application port
@@ -18,7 +17,6 @@ app.set('port', PORT); // Set the application port
 app.use('/images', express.static(path.join(__dirname, 'Assets')));
 
 app.use(express.static(path.join(__dirname, 'frontend')));
-
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
@@ -43,7 +41,6 @@ MongoClient.connect(
 
     'mongodb+srv://sidratahir145:wednesday@cluster0.1pssr.mongodb.net/',
 
-
     
     { useUnifiedTopology: true }, // Use the new MongoDB driver topology engine
     (err, client) => {
@@ -58,7 +55,6 @@ MongoClient.connect(
 
     }
 );
-
 
 
 // Display a message for the root path to show that the API is working
@@ -100,11 +96,10 @@ app.post('/collection/:collectionName', (req, res, next) => {
 // Retrieve a specific document by its ObjectID
 app.get('/collection/:collectionName/:id', (req, res, next) => {
     req.collection.findOne({ _id: new ObjectId(req.params.id) }, (err, result) => {
-        if (err) return next(err); // Pass the error to the error handler
-        res.send(result); // Send the retrieved document as the response
+        if (err) return next(err); 
+        res.send(result);
     });
 });
-
 
 app.get('/search', async (req, res) => {
     const searchQuery = req.query.q;
@@ -174,7 +169,6 @@ app.post('/collection/orders', async (req, res) => {
         res.status(500).json({message:'Order failed', error: error.message});
     }
 });
-
 
 
 // Start the server and listen on the specified port
