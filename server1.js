@@ -6,7 +6,7 @@ const path = require('path');
 
 // Create an Express.js instance
 const app = express();
-const PORT = 3000; // Define the port to run the server
+const PORT = 8080; // Define the port to run the server
 app.use(cors());
 
 
